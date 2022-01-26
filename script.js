@@ -421,6 +421,12 @@
                     this._length = parseInt(s, 10);
                     break;
                   case "win":
+                    
+                    console.log(document.getElementsByClassName('hiddenLetter'));
+                    for (let el of document.getElementsByClassName('hiddenLetter')) {
+                      console.log(el)
+                      el.style.display = "inline"
+                    };
                     if (null === s) {
                       this.$tiles.forEach(function (e) {
                         e.classList.remove("win");
