@@ -63,6 +63,10 @@
     </script>
     <script src="script.js"></script>
     <script>
+      
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      var wordlenumber = parseInt(urlParams.get("n")) +
       var wordlenumber = Math.ceil(Math.random() * 2315);
     </script>
 
