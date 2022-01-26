@@ -423,6 +423,8 @@
                     });
                 }
                 this._render();
+                
+                this.shadowRoot.querySelector('.row').childNodes.forEach((e) => {e.shadowRoot.querySelector('.tile').innerHTML = ""})
               },
             },
             {
@@ -436,8 +438,6 @@
                       ? a.setAttribute("letter", t)
                       : a.removeAttribute("letter");
                   });
-                console.log(e.$tiles);
-                  // console.log(e.querySelectorAll(".tile"));
               },
             },
           ],
