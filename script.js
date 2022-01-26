@@ -284,7 +284,13 @@
                       e._render();
                       // Removes letter from tile
                       if (e.shadowRoot.querySelector('.tile').getAttribute('data-state') != 'tbd') {
+                        let letter = e.shadowRoot.querySelector('.tile').innerHTML;
+                        console.log(letter)
                         e.shadowRoot.querySelector('.tile').innerHTML = "";
+                        let span = e.shadowRoot.querySelector('.tile').appendChild(document.createElement('span'));
+                        span.innerHTML = letter;
+                        span.className = "hiddenLetter";
+                        span.style[0] = "display: none"
                       }
                   }),
                   
