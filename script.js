@@ -421,12 +421,13 @@
                     this._length = parseInt(s, 10);
                     break;
                   case "win":
-                    
-                    console.log(document.getElementsByClassName('hiddenLetter'));
-                    for (let el of document.getElementsByClassName('hiddenLetter')) {
-                      console.log(el)
-                      el.style.display = "inline"
-                    };
+                    // let style = document.createElement('style');
+                    // style.innerHTML = 
+                    // for (let el of document.getElementsByClassName('hiddenLetter')) {
+                    //   console.log(el)
+                    //   el.style.display = "inline"
+                    // };
+                    document.querySelector('game-app')
                     if (null === s) {
                       this.$tiles.forEach(function (e) {
                         e.classList.remove("win");
