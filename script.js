@@ -398,7 +398,6 @@
                   this.addEventListener("animationend", function (a) {
                     "Shake" === a.animationName && e.removeAttribute("invalid");
                   });
-                console.log(this.shadowRoot.querySelectorAll(".tile"));
               },
             },
             {
@@ -437,6 +436,8 @@
                       ? a.setAttribute("letter", t)
                       : a.removeAttribute("letter");
                   });
+                console.log(e.$tiles);
+                  // console.log(e.querySelectorAll(".tile"));
               },
             },
           ],
