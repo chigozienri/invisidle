@@ -398,6 +398,7 @@
                   this.addEventListener("animationend", function (a) {
                     "Shake" === a.animationName && e.removeAttribute("invalid");
                   });
+                console.log(this.shadowRoot.querySelectorAll(".tile"));
               },
             },
             {
