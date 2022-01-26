@@ -284,12 +284,14 @@
                       e._render();
                       // Removes letter from tile
                       if (e.shadowRoot.querySelector('.tile').getAttribute('data-state') != 'tbd') {
-                        let letter = e.shadowRoot.querySelector('.tile').innerHTML;
-                        e.shadowRoot.querySelector('.tile').innerHTML = "";
-                        let span = e.shadowRoot.querySelector('.tile').appendChild(document.createElement('span'));
-                        span.innerHTML = letter;
-                        span.className = "hiddenLetter";
-                        span.style.display = "none"
+                        if (e.className != "win") {
+                          let letter = e.shadowRoot.querySelector('.tile').innerHTML;
+                          e.shadowRoot.querySelector('.tile').innerHTML = "";
+                          let span = e.shadowRoot.querySelector('.tile').appendChild(document.createElement('span'));
+                          span.innerHTML = letter;
+                          span.className = "hiddenLetter";
+                          span.style.display = "none"
+                        }
                       }
                   }),
                   
@@ -421,19 +423,17 @@
                     this._length = parseInt(s, 10);
                     break;
                   case "win":
-                    // let style = document.createElement('style');
-                    // style.innerHTML = 
-                    // for (let el of document.getElementsByClassName('hiddenLetter')) {
-                    //   console.log(el)
-                    //   el.style.display = "inline"
-                    // };
                     let gameRows = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager').querySelector('#game').querySelector('#board-container').querySelector('#board').querySelectorAll('game-row');
                     for (let row of gameRows) {
                       let rowInner = row.shadowRoot.childNodes[3];
                       let gameTiles = rowInner.querySelectorAll('game-tile');
                       for (let gameTile of gameTiles) {
                         console.log(gameTile);
-                        console.log(gameTile.$tile.childNodes)
+                        let span = gameTile.$tile.childNodes.length == 1 ? gameTile.$tile.childNodes[0] : null;
+                        if (span !== null) {
+                          console.log(span)
+                          span.style.display = "inline";
+                        }
                       }
                     }
                     if (null === s) {
@@ -14450,7 +14450,7 @@
         .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
         .concat(
           4e3,
-          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         REWORDLE\n        </div>\n        <div class="menu">\n                   </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
+          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         BLINDLE\n        </div>\n        <div class="menu">\n                   </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
         );
     var Qa = document.createElement("template");
     Qa.innerHTML =
