@@ -282,7 +282,12 @@
                             })
                           )),
                       e._render();
+                      // Removes letter from tile
+                      if (e.shadowRoot.querySelector('.tile').getAttribute('data-state') != 'tbd') {
+                        e.shadowRoot.querySelector('.tile').innerHTML = "";
+                      }
                   }),
+                  
                   this._render();
               },
             },
@@ -317,6 +322,7 @@
                   (["empty", "tbd"].includes(this._state) || this._reveal) &&
                     this.$tile.dataset.animation != this._animation &&
                     (this.$tile.dataset.animation = this._animation));
+                console.log(this);
               },
             },
           ],
@@ -423,8 +429,6 @@
                     });
                 }
                 this._render();
-                
-                this.shadowRoot.querySelector('.row').childNodes.forEach((e) => {e.shadowRoot.querySelector('.tile').innerHTML = ""})
               },
             },
             {
