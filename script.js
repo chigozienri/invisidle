@@ -429,11 +429,11 @@
                     // };
                     let gameRows = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager').querySelector('#game').querySelector('#board-container').querySelector('#board').querySelectorAll('game-row');
                     for (let row of gameRows) {
-                      console.log(row.shadowRoot.querySelector('#row'))
-                      let rowInner = row.shadowRoot.$row;
-                      console.log(rowInner)
-                      if (rowInner) {
-                        console.log(rowInner.querySelectorAll('game-tile'))
+                      let rowInner = row.shadowRoot.childNodes[3];
+                      let gameTiles = rowInner.querySelectorAll('game-tile');
+                      for (let gameTile of gameTiles) {
+                        console.log(gameTile);
+                        console.log(gameTile.$tile.childNodes)
                       }
                     }
                     if (null === s) {
