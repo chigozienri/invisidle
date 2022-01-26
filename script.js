@@ -12287,7 +12287,6 @@
                     l = r.every(function (e) {
                       return "correct" === e;
                     });
-                  console.log('hi');
                   if (i || l)
                     Va({
                       isWin: l,
@@ -12461,7 +12460,7 @@
                             ? e.showStatsModal()
                             : (e.gameStatus === es &&
                                 (s.setAttribute("win", ""),
-                                e.addToast(ss[e.rowIndex - 1], 2e3)),
+                                e.addToast(ss[e.rowIndex - 1], 2e3),
                               e.gameStatus === as &&
                                 e.addToast(e.solution.toUpperCase(), 1 / 0),
                               setTimeout(function () {
