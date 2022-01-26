@@ -427,7 +427,15 @@
                     //   console.log(el)
                     //   el.style.display = "inline"
                     // };
-                    document.querySelector('game-app')
+                    let gameRows = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager').querySelector('#game').querySelector('#board-container').querySelector('#board').querySelectorAll('game-row');
+                    for (let row of gameRows) {
+                      console.log(row.shadowRoot.querySelector('#row'))
+                      let rowInner = row.shadowRoot.$row;
+                      console.log(rowInner)
+                      if (rowInner) {
+                        console.log(rowInner.querySelectorAll('game-tile'))
+                      }
+                    }
                     if (null === s) {
                       this.$tiles.forEach(function (e) {
                         e.classList.remove("win");
