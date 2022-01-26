@@ -66,8 +66,7 @@
       
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      var wordlenumber = parseInt(urlParams.get("n")) +
-      var wordlenumber = Math.ceil(Math.random() * 2315);
+      var wordlenumber = !isNaN(parseInt(urlParams.get("n"))) ? parseInt(urlParams.get("n")) : Math.ceil(Math.random() * 2315);
     </script>
 
     <game-app></game-app>
