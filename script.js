@@ -285,12 +285,11 @@
                       // Removes letter from tile
                       if (e.shadowRoot.querySelector('.tile').getAttribute('data-state') != 'tbd') {
                         let letter = e.shadowRoot.querySelector('.tile').innerHTML;
-                        console.log(letter)
                         e.shadowRoot.querySelector('.tile').innerHTML = "";
                         let span = e.shadowRoot.querySelector('.tile').appendChild(document.createElement('span'));
                         span.innerHTML = letter;
                         span.className = "hiddenLetter";
-                        span.style[0] = "display: none"
+                        span.style.display = "none"
                       }
                   }),
                   
@@ -328,7 +327,6 @@
                   (["empty", "tbd"].includes(this._state) || this._reveal) &&
                     this.$tile.dataset.animation != this._animation &&
                     (this.$tile.dataset.animation = this._animation));
-                console.log(this);
               },
             },
           ],
@@ -14376,6 +14374,7 @@
     }
     function Da(e) {
       var a;
+      console.log(La[wordlenumber % La.length])
       return (a = wordlenumber % La.length), La[a];
     }
     function Ga(e) {
