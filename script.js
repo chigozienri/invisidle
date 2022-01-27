@@ -13032,7 +13032,7 @@
       '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
     var Is = document.createElement("template");
     Is.innerHTML =
-      '\n  <div class="countdown">\n    <button class="random" onclick="() => {console.log(`hi`)}"><h1>Random Invisidle</h1></button>\n    </div>\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
+      '\n  <div class="countdown">\n    <button class="random" onclick="window.location.href = baseurl"><h1>Get new Invisidle</h1></button>\n    </div>\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
     var Ms = {
         currentStreak: "Current Streak",
         maxStreak: "Max Streak",
