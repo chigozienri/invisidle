@@ -12088,7 +12088,7 @@
         averageGuesses: 0,
       };
     function Xa() {
-      var e = JSON.stringify(Ua);
+      var e = window.localStorage.getItem(Ya) || JSON.stringify(Ua);
       return JSON.parse(e);
     }
     function Va(e) {
@@ -13068,6 +13068,7 @@
                     Math,
                     g(Object.values(this.stats.guesses))
                   );
+                  console.log(this.stats);
                 if (
                   Object.values(this.stats.guesses).every(function (e) {
                     return 0 === e;
