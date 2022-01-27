@@ -72,7 +72,7 @@
       <label for="wordlenumber" style="color: var(--color-tone-1)">Go to invisidle number:</label>
       <input type="text" id="wordlenumber"></input>
       <button id="gotowordle">Go</button>
-      <button class="random">Random invisidle</button>
+      <button class="random">Random Invisidle</button>
     </div>
 
     <game-app></game-app>
@@ -118,7 +118,8 @@
           ></path>
         </svg> -->
         Invisidle by @chigozienri
-      </a>
+      </a><br />
+      <a href="https://rewordle.glitch.me/">Too hard? Try ReWordle</a>
       <img
         src="https://skinny-decorous-deal.glitch.me/counter.png?fallback=invisidle.glitch.me&color=green"
         alt=""
@@ -139,6 +140,12 @@
       random.onclick = () => {
         window.location.href = baseurl;
       };
+      
+      // Request https
+      if (location.protocol != 'https:')
+      {
+       location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+      }
     </script>
   </body>
 </html>
