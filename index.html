@@ -69,10 +69,10 @@
       var wordlenumber = !isNaN(parseInt(urlParams.get("n"))) ? parseInt(urlParams.get("n")) : Math.ceil(Math.random() * 2315);
     </script>
     <div id="replay">
-      <label for="wordlenumber">Go to invisidle number:</label>
+      <label for="wordlenumber" style="color: var(--color-tone-1)">Go to invisidle number:</label>
       <input type="text" id="wordlenumber"></input>
       <button id="gotowordle">Go</button>
-      <button id="random">Random invisidle</button>
+      <button class="random">Random invisidle</button>
     </div>
 
     <game-app></game-app>
@@ -135,7 +135,7 @@
         window.location.href = `${baseurl}/?n=${newwordlenumber.value}`;
       };
 
-      const random = document.querySelector("#random");
+      const random = document.querySelector(".random");
       random.onclick = () => {
         window.location.href = baseurl;
       };
