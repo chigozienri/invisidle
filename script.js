@@ -424,16 +424,6 @@
                     break;
                   case "win":
                     let gameRows = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager').querySelector('#game').querySelector('#board-container').querySelector('#board').querySelectorAll('game-row');
-                    for (let row of gameRows) {
-                      let rowInner = row.shadowRoot.childNodes[3];
-                      let gameTiles = rowInner.querySelectorAll('game-tile');
-                      for (let gameTile of gameTiles) {
-                        let span = gameTile.$tile.childNodes.length == 1 ? gameTile.$tile.childNodes[0] : null;
-                        if (span !== null) {
-                          span.style.display = "inline";
-                        }
-                      }
-                    }
                     if (null === s) {
                       this.$tiles.forEach(function (e) {
                         e.classList.remove("win");
@@ -12460,9 +12450,25 @@
                             ? e.showStatsModal()
                             : (e.gameStatus === es &&
                                 (s.setAttribute("win", ""),
-                                e.addToast(ss[e.rowIndex - 1], 2e3),
+                                e.addToast(ss[e.rowIndex - 1], 2e3)),
                               e.gameStatus === as &&
                                 e.addToast(e.solution.toUpperCase(), 1 / 0),
+                               console.log(e),
+                               (() => {
+                                  let gameRows = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager').querySelector('#game').querySelector('#board-container').querySelector('#board').querySelectorAll('game-row');
+                                    for (let row of gameRows) {
+                                      let rowInner = row.shadowRoot.childNodes[3];
+                                      let gameTiles = rowInner.querySelectorAll('game-tile');
+                                      for (let gameTile of gameTiles) {
+                                        let span = gameTile.$tile.childNodes.length == 1 ? gameTile.$tile.childNodes[0] : undefined;
+                                        if (span !== undefined ) {
+                                          if (span.style !== undefined ) {
+                                            span.style.display = "inline";
+                                          }
+                                        }
+                                      }
+                                    }
+                                })(),
                               setTimeout(function () {
                                 e.showStatsModal();
                               }, 2500))),
