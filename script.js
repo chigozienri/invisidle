@@ -12453,8 +12453,7 @@
                                 e.addToast(ss[e.rowIndex - 1], 2e3)),
                               e.gameStatus === as &&
                                 e.addToast(e.solution.toUpperCase(), 1 / 0),
-                               console.log(e),
-                               (() => {
+                               setTimeout(() => {
                                   let gameRows = document.querySelector('game-app').shadowRoot.querySelector('game-theme-manager').querySelector('#game').querySelector('#board-container').querySelector('#board').querySelectorAll('game-row');
                                     for (let row of gameRows) {
                                       let rowInner = row.shadowRoot.childNodes[3];
@@ -12468,7 +12467,7 @@
                                         }
                                       }
                                     }
-                                })(),
+                                }, 100),
                               setTimeout(function () {
                                 e.showStatsModal();
                               }, 2500))),
